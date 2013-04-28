@@ -1,0 +1,19 @@
+{
+    "name": "cyrill/sucre-util",
+    "require": {
+        "phpunit/phpunit": ">=3.7.0",
+        "php": ">=5.4.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "cyrill",
+            "email": "siril.taka@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Sucre": "lib/"
+        }
+    }
+}
