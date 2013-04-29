@@ -2,10 +2,11 @@
 namespace Sucre\Logger;
 
 use Sucre\SucreObject;
+use Sucre\Traits\MultipleProxy;
 
 class MultiLogger extends SucreObject implements LoggerInterface
 {
-    private $loggers = array();
+    use MultipleProxy;
 
     /**
      * ロガーを追加する
@@ -14,7 +15,7 @@ class MultiLogger extends SucreObject implements LoggerInterface
      */
     public function addLogger(LoggerInterface $logger)
     {
-        $this->loggers[] = $logger;
+        $this->addObject($logger);
     }
 
     public function info($msg)
@@ -50,12 +51,5 @@ class MultiLogger extends SucreObject implements LoggerInterface
         $this->proxy(function ($logger) use ($msg) {
             $logger->fatal($msg);
         });
-    }
-
-    protected function proxy(\Closure $callable)
-    {
-        foreach ($this->loggers as $logger) {
-            $callable($logger);
-        }
     }
 }
