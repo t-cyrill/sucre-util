@@ -59,7 +59,7 @@ abstract class AbstractLogger extends SucreObject implements LoggerInterface {
 
     protected function log($level, $msg)
     {
-        if ($this->isLogging(self::INFO)) {
+        if ($this->isLogging($level)) {
             if (!isset(self::$levelString[$level])) {
                 throw new \InvalidArgumentException('Unknown Error Level');
             }
