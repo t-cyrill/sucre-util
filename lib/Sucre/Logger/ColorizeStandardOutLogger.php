@@ -14,18 +14,21 @@ class ColorizeStandardOutLogger extends StandardOutLogger
     {
         $this->setColor(ColorEscape::YELLOW);
         parent::warn($msg);
+        $this->resetColor();
     }
 
     public function error($msg)
     {
         $this->setColor(ColorEscape::RED);
         parent::error($msg);
+        $this->resetColor();
     }
 
     public function fatal($msg)
     {
         $this->setColor(ColorEscape::RED);
         parent::fatal($msg);
+        $this->resetColor();
     }
 
     protected function write($log)
