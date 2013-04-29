@@ -5,6 +5,12 @@ class Logger {
     private static $initialized = false;
     private static $logger = null;
 
+    const DEBUG = 0;
+    const INFO = 1;
+    const WARN = 2;
+    const ERROR = 3;
+    const FATAL = 4;
+
     private static function isInitialized()
     {
         return self::$initialized;

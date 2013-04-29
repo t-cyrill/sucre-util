@@ -2,20 +2,15 @@
 namespace Sucre\Logger;
 
 use Sucre\SucreObject;
+use Sucre\Logger;
 
 abstract class AbstractLogger extends SucreObject implements LoggerInterface {
-    const DEBUG = 0;
-    const INFO = 1;
-    const WARN = 2;
-    const ERROR = 3;
-    const FATAL = 4;
-
     protected static $levelString = array(
-        self::DEBUG => 'DEBUG',
-        self::INFO => 'INFO',
-        self::WARN => 'WARN',
-        self::ERROR => 'ERROR',
-        self::FATAL => 'FATAL',
+        Logger::DEBUG => 'DEBUG',
+        Logger::INFO => 'INFO',
+        Logger::WARN => 'WARN',
+        Logger::ERROR => 'ERROR',
+        Logger::FATAL => 'FATAL',
     );
 
     private $level = 0;
@@ -34,27 +29,27 @@ abstract class AbstractLogger extends SucreObject implements LoggerInterface {
 
     public function info($msg)
     {
-        $this->log(self::INFO, $msg);
+        $this->log(Logger::INFO, $msg);
     }
 
     public function debug($msg)
     {
-        $this->log(self::DEBUG, $msg);
+        $this->log(Logger::DEBUG, $msg);
     }
 
     public function warn($msg)
     {
-        $this->log(self::WARN, $msg);
+        $this->log(Logger::WARN, $msg);
     }
 
     public function error($msg)
     {
-        $this->log(self::ERROR, $msg);
+        $this->log(Logger::ERROR, $msg);
     }
 
     public function fatal($msg)
     {
-        $this->log(self::FATAL, $msg);
+        $this->log(Logger::FATAL, $msg);
     }
 
     protected function log($level, $msg)
